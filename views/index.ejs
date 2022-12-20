@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" href="css/dev.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <title>
+    SimoFWB
+  </title>
+  <style>
+    .welcome-bgholder {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      background-image: url(pics/welcome.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      transition: opacity 1s;
+    }
+
+    .welcome h1.welcome-on-hover {
+      font-size: 18vh;
+      background: url(pics/welcome.jpg);
+      background-position: center center;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body onload="loadAll('<%= JSON.stringify(adat)%>');">
+  <div class="topnav">
+    <img src="pics/simson.png" alt="" />
+
+    <a href="#builds">
+      <p>Neuaufbau</p>
+    </a>
+    <a href="#workshop">
+      <p>Werkstatt</p>
+    </a>
+    <a href="#contact">
+      <p>Kontact</p>
+    </a>
+    <a class="menuIcon" onclick="menuHandler()">
+      <p>
+        <i class="fas fa-bars"></i>
+      </p>
+    </a>
+  </div>
+  <div class="topnavResp" id="navResp">
+    <a href="#builds">
+    <div class="respButton" onclick="menuHandler()">
+
+      <span>Neuaufbau</span>
+
+    </div></a>
+    <a href="#workshop">
+    <div class="respButton" onclick="menuHandler()">
+
+      <span>Werkstatt</span>
+
+    </div></a>
+    <a href="#contact">
+    <div class="respButton" onclick="menuHandler()">
+
+      <span>Kontact</span>
+    </div></a>
+  </div>
+
+  <div class="welcome">
+    <div class="welcome-bgholder"></div>
+    <h1>
+      SIMO-MOTOR
+    </h1>
+  </div>
+  <p class="linetext" id="builds">
+    Simson Motor Regeneration, Neuaufbau, Tuning, <br>Polieren, Pulverbeschichtung
+  </p>
+  <hr />
+  <div id="allBuilds">
+
+  </div>
+  <div class="bigBuildCont disappear" id="bigCard">
+    <div class="bigBuildHeaderLine">
+      <div class="bigBuildHeader">Cim</div>
+      <div class="bigBuildHeaderX" onclick="exitHandler()">X</div>
+    </div>
+    <div class="bigBuildImageCont">
+      <img src="../public/pics/simson.png" alt="">
+    </div>
+    <div class="bigBuildDesc"></div>
+  </div>
+
+
+  <div class="loadmore">
+    <button id="loadmoreButton" onclick="buildButtonHandler()">
+      <span>zeige mehr</span>
+    </button>
+  </div>
+  <hr />
+  <div class="collage" id="collage">
+    <img src="pics/rep3.jpg" id="collage-photo-1" />
+    <img src="pics/tun.jpg" id="collage-photo-2" />
+    <img src="pics/fest.jpg" id="collage-photo-3" />
+    <div class="collage-content" id="workshop">
+      <div onmouseover="changeBackground(1,this)" onclick="changeBackground(1,this)" class="collage-third"
+        onmouseout="out(this)">
+        <div class="small-content">
+          <h1>Motor Reparatur</h1>
+          <p id="test">
+            Simson Schwalbe, Star, S50, S51, Sr2, MZ,Jawa Reparatur
+          </p>
+        </div>
+      </div>
+      <div onmouseover="changeBackground(2,this)" onclick="changeBackground(2,this)" onmouseout="out(this)"
+        class="collage-third">
+        <div class="small-content">
+          <h1>Tuning</h1>
+          <p>Simson Motor tuning ab 50 ccm bis 110 ccm</p>
+        </div>
+      </div>
+      <div onmouseover="changeBackground(3,this)" onclick="changeBackground(3,this)" onmouseout="out(this)"
+        class="collage-third">
+        <div class="small-content">
+          <h1>Polieren, Pulverbeschichten</h1>
+          <p>Motoren Teile Polieren oder Pulvern lassen,zum beispiel Motor deckel,Motorgehäuse,Vergaser </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src='https://www.jawaparts.com/fotky6872/fotos/6872_5552__vyr_55504785a--1000.jpg"' alt="" />
+  <div class="info" id="contact">
+    <div class="info-about">
+      <div class="location-container">
+        <h1>SIMO-MOTOR FWB</h1>
+        <div class="location-subcontainer">
+          <div>
+            <img src="pics/location-arrow-solid.svg" class="info-logo" alt="" />
+          </div>
+          <div>
+            <p>
+              Dürener Str. 441, <br />
+              50858 Köln
+            </p>
+          </div>
+        </div>
+        <div class="location-subcontainer">
+          <div>
+            <img src="pics/phone-solid.svg" class="info-logo" alt="" />
+          </div>
+          <div>
+            <p>+49 000 00000</p>
+          </div>
+        </div>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d858.9904068937383!2d6.8439901403667225!3d50.91869988824514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf3b0d0eb3b5dd%3A0xf8aab46f1efaf590!2zRMO8cmVuZXIgU3RyLiA0NDEsIDUwODU4IEvDtmxuLCBOw6ltZXRvcnN6w6Fn!5e0!3m2!1shu!2shu!4v1636018606890!5m2!1shu!2shu"
+          allowfullscreen="" loading=" lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/itemLoader.js"></script>
+  <script src="js/collage.js"></script>
+  <script src="js/cardHandler.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

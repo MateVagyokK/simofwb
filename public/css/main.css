@@ -1,0 +1,480 @@
+/* Default values */
+:root {
+  --main-div-size: 66%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: white;
+  background-color: #212529;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+p{
+  margin:0;
+}
+a, a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+/* Top navigation */
+.topnav {
+  overflow: hidden;
+  display: flex;
+  height: 9vh;
+  justify-content: end;
+  align-items: center;
+  font-weight: bold;
+  position:fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #181c1f;
+}
+.topnav img {
+  height: 80%;
+  justify-content: left;
+  margin-right: auto;
+  margin-left: 10px;
+}
+.topnav a p{
+  text-transform: uppercase;
+}
+.topnav a:hover {
+  background-color: black;
+}
+.topnav a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnavResp{
+  display:flex;
+  flex-direction: column;
+  position: fixed;
+  top:9vh;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  display: none;
+}
+.respButton{
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  background-color: #181c1f;
+  cursor: pointer;
+}
+.respButton:hover{
+  background-color: #0d0f11;
+}
+.disappear{
+  display:none !important;
+}
+
+/* Welcome image */
+.welcome {
+  height: 80vh;
+  background-color: wheat;
+  display: flex;
+  text-align: center;
+  position: relative;
+}
+.welcome-bgholder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-image: url(pics/welcome.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-attachment: fixed;
+  transition: opacity 1s;
+
+  -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+.welcome h1 {
+  position: relative;
+  font-size: 3vw;
+  position: absolute;
+  top: 10vh;
+  left:1vh;
+  font-weight: 900;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  animation-name: slide-on-load;
+  animation-duration: 1s;
+  transition: background 0.5s;
+  transition: font-size 1s, background 0.5s;
+}
+.welcome h1.welcome-on-hover {
+  font-size: 18vh;
+  background: url(pics/welcome.jpg);
+  background-position: center center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes slide-on-load {
+  from {
+    left: 10px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.linetext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 3%;
+}
+hr {
+  margin: 2% auto;
+  width: var(--main-div-size);
+}
+
+/* LOAD MORE button*/
+.loadmore {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loadmore button:hover {
+  background-color: rgba(1, 1, 1, 0.3);
+}
+.loadmore button {
+  min-width: 20vw;
+  min-height: 5vw;
+  padding: 10px;
+  background-color: rgba(1, 1, 1, 0);
+  box-shadow: 0;
+  outline: none;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.loadmore button span {
+  opacity: 1;
+  color: white;
+  font-weight: bold;
+}
+#loadmoreButton span {
+  text-transform: uppercase;
+}
+
+/* Collage */
+.collage {
+  width: 100%;
+  height: 80vh;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.collage-third {
+  width: 33.33%;
+  height: 100%;
+  border-right: 1px solid white;
+  color: grey;
+  position: relative;
+  overflow: hidden;
+  word-break: break-word;
+}
+.collage-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.small-content {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  transition-property: color, bottom;
+  transition-duration: 0.5s, 2s;
+}
+.selected {
+  position: absolute;
+  bottom: 80px !important;
+  color: white;
+}
+.small-content p {
+  opacity: 0;
+  transition: all 1s;
+}
+.small-content.selected p {
+  opacity: 1;
+}
+.collage img {
+  position: absolute;
+  display: flex;
+   min-width: 100%;
+   min-height: 100%;
+   max-width: 100%;
+   max-height: 100%;
+   flex-shrink: 0 !important;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s;
+  object-fit:cover;
+}
+.small-content {
+  position: absolute;
+  width: 80%;
+}
+.small-content h1 {
+  position: absolute;
+  bottom: 0;
+}
+.small-content p {
+  position: absolute;
+  color: grey;
+}
+
+/* Info section */
+.info {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  margin: 4% 0;
+  justify-content: center;
+}
+.info-about {
+  width: var(--main-div-size);
+}
+.info-contact {
+  padding: 2%;
+}
+.map {
+  height: 100%;
+  width: 100%;
+}
+.map iframe {
+  height: 100%;
+  width: 100%;
+}
+.location-container {
+  width: 100%;
+}
+.location-container h1{
+  margin:0;
+  font-size: 2em;
+}
+.location-container div:first-child{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.location-container div:first-child img{
+  height: 65%;
+  width: 65%;
+}
+.location-subcontainer {
+  width: 100%;
+  margin: 5% auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+.location-subcontainer :nth-child(1) {
+  display: flex;
+  width: 20%;
+  align-items: center;
+}
+.location-subcontainer :nth-child(2) {
+  flex: 1;
+  display: flex;
+}
+.info-logo {
+  margin: auto;
+}
+.location-subcontainer div p {
+  flex: 1;
+}
+.info-about {
+  display: flex;
+}
+
+/* Hamburger menu */
+.menuIcon {
+  display: none !important;
+  cursor: pointer;
+}
+
+/* Builds and cards */
+.linetext{
+  text-transform: uppercase;
+}
+.builds {
+  padding-inline: 10%;
+}
+.cardHolder {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.builds:not(:first-child){
+  display: none;
+}
+.activateBuild{
+  display: block !important;
+}
+.buildCard {
+  height: 39vh;
+  width: 26vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  margin-bottom: 2vh;
+  padding: 5px;
+}
+.buildCard:hover{
+  background-color: #181c1f;
+}
+.cardImage {
+  width: 100%;
+  height: 15vh;
+  overflow: hidden;
+}
+.cardImage img {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
+.cardHeader h2{
+  margin:.5vh 0 .5vh 0 !important;
+}
+.activateMenu{
+  display: block !important;
+}
+.bigBuildCont {
+  width: 40vh;
+  height: 60vh;
+  background-color: #181c1f;
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  align-items: center;
+}
+.bigBuildHeaderLine{
+  width: 100%;
+  display: flex;
+  height: 6vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 2em;
+}
+.bigBuildHeaderX{
+  margin:0 0 0 auto;
+  cursor: pointer;
+}
+.bigBuildImageCont{
+  width: 90%;
+  height: 40vh;
+  background-position: center;
+  background-size:cover;
+}
+.bigBuildDesc{
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+}
+.cardDesc{
+  padding: 10px;
+}
+
+/* Mobile view */
+@media only screen and (max-width: 768px) {
+  .small-content h1 {
+    font-size: 1.5em;
+  }
+  .collage {
+    height: 40vh;
+  }
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .menuIcon {
+    display: flex !important;
+    width: 9vh;
+  }
+  .menuIcon p i {
+    font-size: 30px;
+  }
+  .welcome {
+    height: 40vh;
+  }
+  .welcome h1 {
+    font-size: 3em;
+  }
+  .info-about{
+    flex-direction: column !important;
+  }
+  .collage{
+    height: 50vh;
+  }
+  .map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .map iframe{
+    width: 40vh;
+    height: 40vh;
+    margin:25px 0 25px 0;
+  }
+  .buildCard{
+    margin-top:20px;
+  }
+  hr{
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+}
